@@ -1,23 +1,26 @@
-import React from 'react';
-import '../styles/dashboard.css';
-import { systemData, alerts } from '../data/systemData';
+import { systemInfo, alerts } from "../data/systemData";
+import "../styles/dashboard.css";
+import IrrigationButton from "../components/IrrigationButton";
 
 function Dashboard() {
   return (
-    <div>
+    <>
       <header>
-        <h1>IoT Rainwater Utilization System</h1>
+      
+        <h1>IoT Rainwater Irrigation Dashboard</h1>
       </header>
-
       <main>
-        <section>
-          <h2>System Status</h2>
-          <p>Tank Level: {systemData.tankLevel}</p>
-          <p>Pump Status: {systemData.pumpStatus}</p>
-          <p>Rainfall Today: {systemData.rainfallToday}</p>
+        <section className="card">
+          <h2>Water Monitoring</h2>
+          <p>Water Level: {systemInfo.waterLevel}</p>
+          <p>Tank Status: {systemInfo.tankStatus}</p>
         </section>
-
-        <section>
+        <section className="card">
+          <h2>Irrigation Schedule</h2>
+          <p>Next Irrigation Date: {systemInfo.nextIrrigation}</p>
+          <p>Total Irrigations: {systemInfo.irrigationCount}</p>
+        </section>
+        <section className="card">
           <h2>System Alerts</h2>
           <ul>
             {alerts.map((alert, index) => (
@@ -25,12 +28,12 @@ function Dashboard() {
             ))}
           </ul>
         </section>
+        <IrrigationButton />
       </main>
-
       <footer>
-        <p>© 2026 IoT Rainwater Monitoring</p>
+        <p>© 2026 Smart Irrigation System</p>
       </footer>
-    </div>
+    </>
   );
 }
 

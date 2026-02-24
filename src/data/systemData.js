@@ -1,10 +1,12 @@
-export const systemData = {
-  tankLevel: "75%",
-  pumpStatus: "Active",
-  rainfallToday: "12 mm"
+export const systemInfo = {
+  waterLevel: "80%",
+  tankStatus: "Normal",
+  nextIrrigation: "March 15, 2026",
+  irrigationCount: 4
 };
 
 export const alerts = [
-  "Filter needs cleaning",
-  "Low pressure detected"
+  "Water level is stable",
+  "Last irrigation successful",
+  "Fertilizer mix ready"
 ];
