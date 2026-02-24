@@ -1,14 +1,24 @@
 import { systemInfo, alerts } from "../data/systemData";
 import "../styles/dashboard.css";
 import IrrigationButton from "../components/IrrigationButton";
+import SearchBar from "../components/SearchBar.js";
+import Menu from "../pages/menu.jsx";
 
 function Dashboard() {
+  const handleSearch = (searchTerm) => {
+    console.log("Searching for:", searchTerm);
+  };
+
   return (
     <>
       <header>
       
         <h1>IoT Rainwater Irrigation Dashboard</h1>
       </header>
+      <div className="search-container">
+        <SearchBar onSearch={handleSearch} />
+          <div className="menu-container"> <Menu /></div>
+      </div>
       <main>
         <section className="card">
           <h2>Water Monitoring</h2>
