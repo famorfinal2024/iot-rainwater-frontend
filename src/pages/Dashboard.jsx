@@ -15,9 +15,9 @@ function Dashboard() {
       
         <h1>IoT Rainwater Irrigation Dashboard</h1>
       </header>
-      <div className="search-container">
-        <SearchBar onSearch={handleSearch} />
-          <div className="menu-container"> <Menu /></div>
+          <div className="search-container">
+            <SearchBar onSearch={handleSearch} />
+              <div className="menu-container"> <Menu /></div>
       </div>
       <main>
         <section className="card">
