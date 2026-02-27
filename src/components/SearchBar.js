@@ -64,11 +64,10 @@ function SearchBar({ onSearch }) {
           </button>
         )}
       </div>
-      {/* <div className="menu-container">
-        <Menu />
-      </div> */}
+  
     </div>
   );
 }
+
 
 export default SearchBar;

@@ -1,4 +1,4 @@
-
+/* 
 .search-bar-container {
   display: flex;
   justify-content: flex-start;
@@ -78,6 +78,8 @@
   transform: scale(1.1);
 }
 
+
+
 .clear-button svg {
   pointer-events: none;
-}
+} */
