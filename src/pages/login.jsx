@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../styles/login.css';
 
@@ -12,22 +12,22 @@ function Login() {
   const handleLogin = async () => {
     setLoading(true);
     setError('');
-    // Simulate authentication
+   
     setTimeout(() => {
-      // Check against stored users in localStorage
+     
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       const validUser = users.find(u => 
-        (u.email === username || u.email === username) && u.password === password
+        u.email === username && u.password === password
       );
       
-      // Also allow default admin account
+   
       if ((username === 'admin' && password === 'password') || validUser) {
         navigate('/dashboard');
       } else {
         setError('Invalid credentials. Please try again.');
       }
       setLoading(false);
-    }, 2000);
+    }, 1000);
   };
 
   const handleSubmit = (e) => {

@@ -25,10 +25,10 @@ function SearchBar({ onSearch }) {
       <div className="search-bar">
         <svg
           className="search-icon"
-          xmlns="http://www.w3.org/2000/svg"
+          
           width="20"
-          height="20"
-          viewBox="0 0 24 24"
+          height="40"
+          viewBox="0 6.5 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -48,7 +48,7 @@ function SearchBar({ onSearch }) {
         {searchTerm && (
           <button className="clear-button" onClick={handleClear}>
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+            
               width="16"
               height="16"
               viewBox="0 0 24 24"
