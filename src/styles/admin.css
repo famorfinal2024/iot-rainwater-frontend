@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,18 +9,22 @@ body {
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background-color: #f0f2f5;
   background-image: url('/public/agrelogo.jpg');
-  background-size: cover;
-  background-position: center;
   min-height: 100vh;
   line-height: 1.6;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
+  color: #333;
 }
 
-header {
+/* Admin Container */
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.admin-header {
   background: linear-gradient(135deg, #2e7d32 0%, #43a047 50%, #66bb6a 100%);
-  color: rgb(255, 255, 255);
+  color: white;
   padding: 16px 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -30,7 +35,7 @@ header {
   gap: 16px;
 }
 
-header::before {
+.admin-header::before {
   content: '';
   position: absolute;
   top: 0;
@@ -40,7 +45,7 @@ header::before {
   opacity: 0.5;
 }
 
-header h1 {
+.admin-header h1 {
   color: #ffffff;
   font-size: 1.8rem;
   font-weight: 600;
@@ -48,6 +53,13 @@ header h1 {
   position: relative;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0;
+}
+
+.admin-header p {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 4px 0 0;
+  position: relative;
+  font-size: 0.95rem;
 }
 
 .dash-logo {
@@ -60,21 +72,54 @@ header h1 {
   padding: 4px;
 }
 
+/* Search Container */
 .search-container {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   padding-left: 40px;
   background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
 }
 
-main {
+.search-container h2 {
+  color: #2e7d32;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Logout Button in Header */
+.logout-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #F44336;
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+.admin-main {
   flex: 1;
   padding: 30px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
+.admin-content {
+  padding: 0;
+}
+
+/* Card Styles */
 .card {
   background: white;
   margin-bottom: 24px;
@@ -83,7 +128,8 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
-  max-width: 500px;
+  max-width: 900px;
+  margin: 0 auto;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -95,7 +141,7 @@ main {
 .card h2 {
   color: #2e7d32;
   font-size: 1.3rem;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #e8f5e9;
   font-weight: 600;
@@ -107,62 +153,93 @@ main {
   font-size: 1rem;
 }
 
-.card ul {
-  list-style: none;
-  padding: 0;
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.card ul li {
-  padding: 10px 16px;
-  margin-bottom: 8px;
-  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-  border-radius: 8px;
-  border-left: 4px solid #ff9800;
-  color: #e65100;
+.data-table th,
+.data-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+  background: #f8f9fa;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.data-table tr:hover {
+  background: #f8f9fa;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: transform 0.2s ease;
 }
 
-.card ul li:hover {
-  transform: translateX(4px);
+.badge.active {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  color: #2e7d32;
 }
 
+.badge.inactive {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  color: #c62828;
+}
+
+/* Buttons */
 button,
-.button-section button {
+.action-btn {
   background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
   color: white;
-  padding: 14px 28px;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 button:hover,
-.button-section button:hover {
+.action-btn:hover {
   background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
 }
 
 button:active,
-.button-section button:active {
+.action-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
 }
 
-.button-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.action-btn {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  margin-right: 5px;
 }
 
-footer {
+.action-btn.delete {
+  background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+}
+
+.action-btn.delete:hover {
+  background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+}
+
+/* Footer */
+.admin-footer {
   text-align: center;
   padding: 20px;
   background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
@@ -172,52 +249,42 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
 }
 
-footer p {
+.admin-footer p {
   font-size: 0.95rem;
   opacity: 0.9;
 }
 
-@media (min-width: 768px) {
-  main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    text-align: center;
   }
   
-  .card {
-    max-width: 100%;
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
   }
   
-  header h1 {
-    font-size: 2.2rem;
+  .data-table {
+    font-size: 0.9rem;
   }
   
-  footer {
-    position: fixed;
-  }
-}
-
-@media (min-width: 1024px) {
-  main {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .card:last-child {
-    grid-column: span 3;
-    max-width: 600px;
-    margin: 0 auto;
+  .data-table th,
+  .data-table td {
+    padding: 10px 8px;
   }
 }
 
 @media (max-width: 480px) {
-  header h1 {
+  .admin-header h1 {
     font-size: 1.4rem;
   }
   
-  main {
+  .admin-main {
     padding: 16px 12px;
   }
   
@@ -226,10 +293,9 @@ footer p {
     border-radius: 12px;
   }
   
-  button,
-  .button-section button {
-    padding: 12px 20px;
-    font-size: 0.9rem;
+  .action-btn {
+    padding: 8px 10px;
+    font-size: 0.8rem;
   }
 }
 
@@ -240,12 +306,16 @@ body.dark-mode {
   color: #e0e0e0;
 }
 
-body.dark-mode header {
+body.dark-mode .admin-header {
   background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #43a047 100%);
 }
 
 body.dark-mode .search-container {
   background-color: rgba(30, 30, 30, 0.8);
+}
+
+body.dark-mode .search-container h2 {
+  color: #66bb6a;
 }
 
 body.dark-mode .card {
@@ -262,17 +332,42 @@ body.dark-mode .card p {
   color: #b0b0b0;
 }
 
-body.dark-mode .card ul li {
-  background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
-  border-left-color: #ff9800;
-  color: #ffcc80;
+body.dark-mode .data-table th {
+  background: #2d2d2d;
+  color: #66bb6a;
+}
+
+body.dark-mode .data-table td {
+  border-bottom-color: #333;
+}
+
+body.dark-mode .data-table tr:hover {
+  background: #2d2d2d;
+}
+
+body.dark-mode .badge.active {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  color: #a5d6a7;
+}
+
+body.dark-mode .badge.inactive {
+  background: linear-gradient(135deg, #b71c1c 0%, #c62828 100%);
+  color: #ef9a9a;
 }
 
 body.dark-mode button,
-body.dark-mode .button-section button {
+body.dark-mode .action-btn {
   background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
 }
 
-body.dark-mode footer {
+body.dark-mode .admin-footer {
   background: linear-gradient(135deg, #0d300d 0%, #1b5e20 100%);
+}
+
+body.dark-mode .logout-btn {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .logout-btn:hover {
+  background: #c62828;
 }
