@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/irrigation-system/static/css/main.736d98b8.css",
-    "main.js": "/irrigation-system/static/js/main.2ecb0ff6.js",
-    "static/js/453.20359781.chunk.js": "/irrigation-system/static/js/453.20359781.chunk.js",
-    "static/media/agrelogo.jpg": "/irrigation-system/static/media/agrelogo.142b5585d7c97a545045.jpg",
-    "index.html": "/irrigation-system/index.html",
-    "main.736d98b8.css.map": "/irrigation-system/static/css/main.736d98b8.css.map",
-    "main.2ecb0ff6.js.map": "/irrigation-system/static/js/main.2ecb0ff6.js.map",
-    "453.20359781.chunk.js.map": "/irrigation-system/static/js/453.20359781.chunk.js.map"
+    "main.css": "/irrigation-system-frontend/static/css/main.54aed766.css",
+    "main.js": "/irrigation-system-frontend/static/js/main.f90fcac4.js",
+    "static/js/453.20359781.chunk.js": "/irrigation-system-frontend/static/js/453.20359781.chunk.js",
+    "static/media/agrelogo.jpg": "/irrigation-system-frontend/static/media/agrelogo.142b5585d7c97a545045.jpg",
+    "index.html": "/irrigation-system-frontend/index.html",
+    "main.54aed766.css.map": "/irrigation-system-frontend/static/css/main.54aed766.css.map",
+    "main.f90fcac4.js.map": "/irrigation-system-frontend/static/js/main.f90fcac4.js.map",
+    "453.20359781.chunk.js.map": "/irrigation-system-frontend/static/js/453.20359781.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.736d98b8.css",
-    "static/js/main.2ecb0ff6.js"
+    "static/css/main.54aed766.css",
+    "static/js/main.f90fcac4.js"
   ]
 }
