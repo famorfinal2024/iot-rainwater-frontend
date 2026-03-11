@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/iot-rainwater-frontend/static/css/main.2ae4b252.css",
-    "main.js": "/iot-rainwater-frontend/static/js/main.1adb7ca6.js",
+    "main.js": "/iot-rainwater-frontend/static/js/main.1db6bede.js",
     "static/js/453.20359781.chunk.js": "/iot-rainwater-frontend/static/js/453.20359781.chunk.js",
     "static/media/agrelogo.jpg": "/iot-rainwater-frontend/static/media/agrelogo.142b5585d7c97a545045.jpg",
     "index.html": "/iot-rainwater-frontend/index.html",
     "main.2ae4b252.css.map": "/iot-rainwater-frontend/static/css/main.2ae4b252.css.map",
-    "main.1adb7ca6.js.map": "/iot-rainwater-frontend/static/js/main.1adb7ca6.js.map",
+    "main.1db6bede.js.map": "/iot-rainwater-frontend/static/js/main.1db6bede.js.map",
     "453.20359781.chunk.js.map": "/iot-rainwater-frontend/static/js/453.20359781.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2ae4b252.css",
-    "static/js/main.1adb7ca6.js"
+    "static/js/main.1db6bede.js"
   ]
 }
