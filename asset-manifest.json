@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/frontend/static/css/main.4f20ec5d.css",
+    "main.js": "/frontend/static/js/main.5c904b93.js",
+    "static/js/453.20359781.chunk.js": "/frontend/static/js/453.20359781.chunk.js",
+    "static/media/agrelogo.jpg": "/frontend/static/media/agrelogo.142b5585d7c97a545045.jpg",
+    "index.html": "/frontend/index.html",
+    "main.4f20ec5d.css.map": "/frontend/static/css/main.4f20ec5d.css.map",
+    "main.5c904b93.js.map": "/frontend/static/js/main.5c904b93.js.map",
+    "453.20359781.chunk.js.map": "/frontend/static/js/453.20359781.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f20ec5d.css",
+    "static/js/main.5c904b93.js"
+  ]
+}
