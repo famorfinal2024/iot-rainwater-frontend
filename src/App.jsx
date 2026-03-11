@@ -3,7 +3,7 @@ import Login from "./pages/login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Dashboard from "./pages/Dashboard";
 
-function App() {
+function App() { 
   return (
     <Router>
       <Routes>
