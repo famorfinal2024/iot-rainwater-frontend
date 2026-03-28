@@ -13,12 +13,12 @@ function Signup() {
   const handleSignup = async () => {
     setLoading(true);
     setError('');
-    // Simulate signup
+    
     setTimeout(() => {
       if (password !== confirmPassword) {
         setError('Passwords do not match.');
       } else if (email && password) {
-        // Save user to localStorage
+        
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         const existingUser = users.find(u => u.email === email);
         if (existingUser) {

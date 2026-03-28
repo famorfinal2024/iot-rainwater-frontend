@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/set.css';
+import { saveSchedule } from '../data/systemData';
 
 function Set({ currentDate, onDateChange }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,12 +18,14 @@ function Set({ currentDate, onDateChange }) {
   };
 
   const handleSave = () => {
-    onDateChange({
+    const scheduleData = {
       date: selectedDate,
       irrigationDays: irrigationDays,
       timesPerDay: timesPerDay,
       irrigationInterval: irrigationInterval
-    });
+    };
+    onDateChange(scheduleData);
+    saveSchedule(scheduleData);
     setIsModalOpen(false);
   };
 

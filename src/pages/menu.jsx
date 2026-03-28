@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/menu.css";
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [isDisplayOpen, setIsDisplayOpen] = useState(false);
+  const [notificationsEmail, setNotificationsEmail] = useState(localStorage.getItem('notificationsEmail') || '');
+  const [notificationsPush, setNotificationsPush] = useState(localStorage.getItem('notificationsPush') === 'true');
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'en');
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(savedDarkMode);
+    if (savedDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -24,9 +39,10 @@ function Menu() {
   };
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    // Apply dark mode to the body
-    if (!darkMode) {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', newDarkMode.toString());
+    if (newDarkMode) {
       document.body.classList.add('dark-mode');
     } else {
       document.body.classList.remove('dark-mode');
@@ -75,11 +91,11 @@ function Menu() {
           </button>
         </div>
         <nav className="side-panel-nav">
-          <a href="#" onClick={closeMenu}>Dashboard</a>
+          <a href="/dashboard" onClick={closeMenu}>Dashboard</a>
           <a href="#" onClick={toggleSettings}>Settings</a>
-          <a href="#" onClick={closeMenu}>Reports</a>
-          <a href="#" onClick={closeMenu}>About</a>
-          <a href="#" onClick={closeMenu}>Help</a>
+          <a href="/reports" onClick={closeMenu}>Reports</a>
+          <a href="/about" onClick={closeMenu}>About</a>
+          <a href="/help" onClick={closeMenu}>Help</a>
         </nav>
         <div className="side-panel-footer">
           <button className="logout-button" onClick={() => window.location.href = '/login'}>
@@ -122,9 +138,61 @@ function Menu() {
               <span className="slider round"></span>
             </label>
           </div>
-          <a href="#" onClick={closeSettings}>Notification Settings</a>
-          <a href="#" onClick={closeSettings}>Display Settings</a>
-          <a href="#" onClick={closeSettings}>System Info</a>
+          <div className="settings-item">
+            <span>Notifications</span>
+            <label className="switch">
+              <input type="checkbox" checked={notificationsPush} onChange={(e) => {
+                setNotificationsPush(e.target.checked);
+                localStorage.setItem('notificationsPush', e.target.checked.toString());
+              }} />
+              <span className="slider round"></span>
+            </label>
+          </div>
+          <div className="settings-section">
+            <h4>Notification Settings</h4>
+            <div className="settings-item">
+              <span>Email Notifications</span>
+              <input type="email" value={notificationsEmail} onChange={(e) => {
+                setNotificationsEmail(e.target.value);
+                localStorage.setItem('notificationsEmail', e.target.value);
+              }} placeholder="yurag@email.com" />
+            </div>
+            <div className="settings-item">
+              <span>Push Notifications</span>
+              <label className="switch">
+                <input type="checkbox" checked={notificationsPush} onChange={(e) => {
+                  setNotificationsPush(e.target.checked);
+                  localStorage.setItem('notificationsPush', e.target.checked.toString());
+                }} />
+                <span className="slider round"></span>
+              </label>
+            </div>
+            <button className="save-settings-btn" onClick={() => alert('Notification settings saved!')}>Save</button>
+          </div>
+          <div className="settings-section">
+            <h4>Display Settings</h4>
+            <div className="settings-item">
+              <span>Language</span>
+              <select value={language} onChange={(e) => {
+                setLanguage(e.target.value);
+                localStorage.setItem('language', e.target.value);
+              }}>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+              </select>
+            </div>
+            <button className="save-settings-btn" onClick={() => alert('Display settings saved!')}>Save</button>
+          </div>
+          <div className="settings-item">
+            <span>System Info</span>
+            <details>
+              <summary>View Details</summary>
+              <p>Water Level: 80%</p>
+              <p>Tank Status: Normal</p>
+              <p>Last Update: Today</p>
+            </details>
+          </div>
         </nav>
       </div>
 
@@ -135,3 +203,4 @@ function Menu() {
 }
 
 export default Menu;
+
