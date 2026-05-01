@@ -16,14 +16,51 @@ function Set({ currentDate, onDateChange }) {
     setIsModalOpen(false);
   };
 
-  const handleSave = () => {
-    onDateChange({
+  // SAVE SCHEDULE TO DJANGO BACKEND
+  const handleSave = async () => {
+    const scheduleData = {
       date: selectedDate,
       irrigationDays: irrigationDays,
       timesPerDay: timesPerDay,
       irrigationInterval: irrigationInterval
-    });
-    setIsModalOpen(false);
+    };
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/schedule/create/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Token ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({
+          user: 1, // Replace with dynamic logged-in user ID later
+          date: selectedDate,
+          irrigation_days: irrigationDays,
+          times_per_day: timesPerDay,
+          irrigation_interval: irrigationInterval
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Schedule created successfully!");
+
+        // Update dashboard UI immediately
+        onDateChange(scheduleData);
+
+        console.log("Saved Schedule:", data);
+        setIsModalOpen(false);
+
+      } else {
+        console.error(data);
+        alert("Failed to save schedule.");
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Error connecting to backend.");
+    }
   };
 
   return (
@@ -36,7 +73,7 @@ function Set({ currentDate, onDateChange }) {
         <div className="modal-overlay">
           <div className="modal-content">
             <h3>Set Irrigation Schedule</h3>
-            
+
             <div className="form-group">
               <label>Next Irrigation Date:</label>
               <input
@@ -88,8 +125,13 @@ function Set({ currentDate, onDateChange }) {
             </div>
 
             <div className="modal-buttons">
-              <button onClick={handleSave} className="save-button">Save</button>
-              <button onClick={handleCloseModal} className="cancel-button">Cancel</button>
+              <button onClick={handleSave} className="save-button">
+                Save
+              </button>
+
+              <button onClick={handleCloseModal} className="cancel-button">
+                Cancel
+              </button>
             </div>
           </div>
         </div>
